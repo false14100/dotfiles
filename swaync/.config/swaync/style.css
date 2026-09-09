@@ -1,0 +1,213 @@
+/* ============================================================
+   Base16 Classic Dark - SwayNC Theme
+   Matches Rofi & Waybar Configuration
+   ============================================================ */
+
+@define-color base00 #151515;
+@define-color base01 #1c1c1c;
+@define-color base02 #262626;
+@define-color base03 #454545;
+@define-color base04 #8a8a8a;
+@define-color base05 #d0d0d0;
+@define-color base06 #e8e8e8;
+@define-color base07 #f5f5f5;
+
+@define-color base08 #ac4142; /* Red / Critical */
+@define-color base09 #d28445; /* Orange / Warning */
+@define-color base0A #f4bf75; /* Yellow / Accent */
+@define-color base0B #90a959; /* Green */
+@define-color base0C #75b5aa; /* Cyan */
+@define-color base0D #6a9fb5; /* Blue */
+@define-color base0E #aa759f; /* Purple */
+@define-color base0F #8f5536; /* Brown */
+
+* {
+  font-family: "MesloLGS Nerd Font Mono", "Iosevka Nerd Font Mono";
+  font-size: 13px;
+  background-clip: border-box;
+}
+
+/* ============================================================
+   Control Center Window
+   ============================================================ */
+
+.control-center {
+  background-color: @base00;
+  border: 1px solid @base02;
+  border-radius: 6px;
+  color: @base05;
+  padding: 8px;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+/* Floating Notification Popups */
+.notification-row {
+  outline: none;
+  background: transparent;
+  padding: 4px 0px;
+}
+
+.notification {
+  background: @base00;
+  border: 1px solid @base02;
+  border-radius: 6px;
+  color: @base05;
+  padding: 6px;
+  margin: 0px;
+}
+
+.notification-content {
+  background: transparent;
+  padding: 6px;
+}
+
+.close-button {
+  background: transparent;
+  color: @base04;
+  border-radius: 4px;
+}
+
+.close-button:hover {
+  background: @base01;
+  color: @base08;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: @base01;
+}
+
+/* Notification Urgency Levels */
+.low {
+  border-color: @base02;
+}
+
+.normal {
+  border-color: @base02;
+}
+
+.critical {
+  border-color: @base08;
+}
+
+.critical .summary {
+  color: @base08;
+}
+
+/* ============================================================
+   Widgets Styling
+   ============================================================ */
+
+/* Header / Title Widget */
+.widget-title {
+  color: @base0A;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.widget-title > button {
+  font-size: 12px;
+  color: @base05;
+  background: @base01;
+  border: 1px solid @base02;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.widget-title > button:hover {
+  color: @base0A;
+  border-color: @base0A;
+}
+
+/* Do Not Disturb Toggle Widget */
+.widget-dnd {
+  color: @base05;
+  padding: 6px 10px;
+  font-weight: bold;
+}
+
+.widget-dnd > switch {
+  background: @base01;
+  border: 1px solid @base02;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+  background: @base0A;
+  border-color: @base0A;
+}
+
+.widget-dnd > switch slider {
+  background: @base05;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked slider {
+  background: @base00;
+}
+
+/* Volume & Backlight Sliders */
+.widget-volume,
+.widget-backlight {
+  background: @base01;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 4px;
+  border: 1px solid @base02;
+}
+
+.widget-volume label,
+.widget-backlight label {
+  color: @base0A;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+scale trough {
+  background-color: @base02;
+  border-radius: 4px;
+  min-height: 8px;
+}
+
+scale highlight {
+  background-color: @base0A;
+  border-radius: 4px;
+}
+
+/* Media Control (MPRIS Widget) */
+.widget-mpris {
+  background: @base01;
+  border: 1px solid @base02;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 4px;
+  color: @base05;
+}
+
+.widget-mpris-player {
+  padding: 4px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  color: @base06;
+}
+
+.widget-mpris-subtitle {
+  color: @base04;
+  font-size: 11px;
+}
+
+.widget-mpris button {
+  color: @base05;
+  border-radius: 4px;
+}
+
+.widget-mpris button:hover {
+  color: @base0A;
+  background: @base02;
+}

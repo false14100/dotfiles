@@ -1,0 +1,243 @@
+configuration {
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+
+    sidebar-mode: true;
+
+    display-ssh: "ssh";
+    display-drun: "drun";
+    display-run: "run";
+    display-window: "win";
+    display-combi: "combi";
+    display-filebrowser: "files";
+
+    dpi: 120;
+
+    modi: "drun,run,ssh,window,filebrowser";
+
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+
+    hover-select: true;
+    click-to-exit: true;
+
+    kb-row-1: "";
+    kb-row-2: "";
+    kb-row-3: "";
+    kb-row-4: "";
+    kb-row-5: "";
+    kb-row-6: "";
+
+    kb-custom-1: "Control+1";
+    kb-custom-2: "Control+2";
+    kb-custom-3: "Control+3";
+    kb-custom-4: "Control+4";
+    kb-custom-5: "Control+5";
+    kb-custom-6: "Control+6";
+
+    kb-custom-1-command: "kb-mode-complete";
+    kb-custom-2-command: "kb-mode-complete";
+    kb-custom-3-command: "kb-mode-complete";
+    kb-custom-4-command: "kb-mode-complete";
+    kb-custom-5-command: "kb-mode-complete";
+    kb-custom-6-command: "kb-mode-complete";
+
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+
+    ml-row-left: "ScrollLeft";
+    ml-row-right: "ScrollRight";
+    ml-row-up: "ScrollUp";
+    ml-row-down: "ScrollDown";
+}
+
+/* ============================================================
+   Base16 Classic Dark
+   ============================================================ */
+
+* {
+    base00: #151515;
+    base01: #1c1c1c;
+    base02: #262626;
+    base03: #454545;
+    base04: #8a8a8a;
+    base05: #d0d0d0;
+    base06: #e8e8e8;
+    base07: #f5f5f5;
+
+    base08: #ac4142;
+    base09: #d28445;
+    base0A: #f4bf75;
+    base0B: #90a959;
+    base0C: #75b5aa;
+    base0D: #6a9fb5;
+    base0E: #aa759f;
+    base0F: #8f5536;
+
+    font: "FantasqueSansM Nerd Font Mono 12";
+
+    background-color: transparent;
+    text-color: @base05;
+
+    spacing: 0px;
+}
+
+/* ============================================================
+   Main Window
+   ============================================================ */
+
+window {
+    width: 580px;
+    background-color: @base00;
+    border: 1px;
+    border-color: @base02;
+    border-radius: 6px;
+    padding: 0px;
+}
+
+mainbox {
+    orientation: vertical;
+    children: [ inputbar, listview, message, sidebar ];
+}
+
+/* ============================================================
+   Input Area
+   ============================================================ */
+
+inputbar {
+    spacing: 12px;
+    padding: 14px 16px;
+    background-color: @base00;
+    border: 0px 0px 1px 0px;
+    border-color: @base02;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @base0A;
+}
+
+entry {
+    text-color: @base06;
+    placeholder: "Search...";
+    placeholder-color: @base03;
+}
+
+/* ============================================================
+   Results List
+   ============================================================ */
+
+listview {
+    columns: 1;
+    lines: 7;
+    padding: 6px 0px;
+    background-color: @base00;
+    fixed-height: false;
+    dynamic: true;
+    scrollbar: false;
+}
+
+/* General Element Base Override */
+element {
+    padding: 8px 16px;
+    background-color: transparent;
+    text-color: @base05;
+    border: 0px 0px 0px 2px;
+    border-color: transparent;
+}
+
+/* Normal / Alternate Fixes */
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: @base05;
+}
+
+element selected.normal {
+    background-color: @base01;
+    text-color: @base0A;
+    border-color: @base0A;
+}
+
+/* Active State */
+element normal.active,
+element alternate.active {
+    background-color: transparent;
+    text-color: @base0D;
+}
+
+element selected.active {
+    background-color: @base01;
+    text-color: @base0D;
+    border-color: @base0D;
+}
+
+/* Urgent State */
+element normal.urgent,
+element alternate.urgent {
+    background-color: transparent;
+    text-color: @base08;
+}
+
+element selected.urgent {
+    background-color: @base01;
+    text-color: @base08;
+    border-color: @base08;
+}
+
+element-icon {
+    size: 20px;
+    margin: 0px 10px 0px 0px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+}
+
+/* ============================================================
+   Mode Switcher (Bottom Bar)
+   ============================================================ */
+
+sidebar {
+    background-color: @base00;
+    border: 1px 0px 0px 0px;
+    border-color: @base02;
+    padding: 4px 8px;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: transparent;
+    text-color: @base04;
+    border-radius: 4px;
+}
+
+button selected {
+    background-color: @base01;
+    text-color: @base0A;
+}
+
+/* ============================================================
+   Messages & Errors
+   ============================================================ */
+
+message {
+    padding: 8px 16px;
+    background-color: @base01;
+    border: 1px 0px 0px 0px;
+    border-color: @base02;
+}
+
+textbox {
+    text-color: @base04;
+}
+
+error-message {
+    padding: 10px 16px;
+    background-color: @base00;
+    border: 1px;
+    border-color: @base08;
+}

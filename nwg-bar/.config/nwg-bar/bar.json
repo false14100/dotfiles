@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Lock",
+    "exec": "hyprlock || swaylock || loginctl lock-session",
+    "icon": "system-lock-screen"
+  },
+  {
+    "label": "Logout",
+    "exec": "hyprctl dispatch exit || niri msg action quit",
+    "icon": "system-log-out"
+  },
+  {
+    "label": "Suspend",
+    "exec": "systemctl suspend",
+    "icon": "system-suspend"
+  },
+  {
+    "label": "Reboot",
+    "exec": "systemctl reboot",
+    "icon": "system-reboot"
+  },
+  {
+    "label": "Shutdown",
+    "exec": "systemctl poweroff",
+    "icon": "system-shutdown"
+  }
+]
