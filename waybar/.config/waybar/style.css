@@ -91,6 +91,12 @@ window#waybar {
     color: @base0D;
 }
 
+#window {
+  color: @base07;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 /* ============================================================
    Workspaces (Hyprland & Niri)
    ============================================================ */
