@@ -162,9 +162,9 @@ let g:tokyonight_enable_italic = 1
 colorscheme base16-classic-dark
 
 " Custom Line Number Highlighting
-highlight LineNrAbove guifg=#FB508F gui=bold ctermfg=205 cterm=bold
-highlight LineNr guifg=white gui=bold ctermfg=white cterm=bold
-highlight LineNrBelow guifg=#51B3EC gui=bold ctermfg=39 cterm=bold
+highlight LineNrAbove guifg=#aa759f gui=bold ctermfg=205 cterm=bold
+highlight LineNr guifg=#f5f5f5 gui=bold ctermfg=white cterm=bold
+highlight LineNrBelow guifg=#6a9fb5 gui=bold ctermfg=39 cterm=bold
 "}}}
 
 " FZF {{{
