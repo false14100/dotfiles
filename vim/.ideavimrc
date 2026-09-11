@@ -1,0 +1,243 @@
+" Leader Key
+let mapleader = " "
+
+" Core Settings
+set scrolloff=10          " Keep 10 lines visible above/below cursor
+set incsearch             " Incremental search
+set number                " Show line numbers
+set relativenumber        " Relative line numbers
+set hlsearch              " Highlight search results
+set history=1000          " Increase command history
+set smartcase             " Smart case-sensitive search
+set ignorecase            " Ignore case in search
+set ideajoin              " Use IntelliJ's join line behavior
+set clipboard+=unnamed    " Use system clipboard
+set signcolumn=yes
+set wrap
+set termguicolors
+set undofile
+set list
+set listchars=eol:↴,tab:\ \ ┊,extends:»,precedes:«,trail:·
+
+" Plugin Settings
+set NERDTree
+set sneak
+set easymotion
+set highlightedyank
+
+" WhichKey settings -
+set which-key
+let g:WhichKey_FontSize = 16
+let g:WhichKey_DefaultDelay = 30
+
+" WhichKey Descriptions for File and Project Navigation
+let g:WhichKeyDesc_file_explorer = "<leader>e NERDTree"
+let g:WhichKeyDesc_goto_file = "<C-p> Go to File"
+let g:WhichKeyDesc_recent_files = "<C-e> Recent Files"
+
+" WhichKey Descriptions for Search
+let g:WhichKeyDesc_search = "<leader>s Search options"
+let g:WhichKeyDesc_search_workspace = "<leader>sw Search in Workspace"
+let g:WhichKeyDesc_search_globally = "<leader>sg Global Search"
+let g:WhichKeyDesc_goto_symbol = "gs Go to Symbol"
+
+" WhichKey Descriptions for Code Navigation
+let g:WhichKeyDesc_code_nav = "g Code Navigation"
+let g:WhichKeyDesc_goto_declaration = "gd Go to Declaration"
+let g:WhichKeyDesc_goto_type_declaration = "gD Go to Type Declaration"
+let g:WhichKeyDesc_goto_implementation = "gi Go to Implementation"
+let g:WhichKeyDesc_quick_implementation = "gI Quick Implementations"
+let g:WhichKeyDesc_goto_super = "go Go to Super Method"
+let g:WhichKeyDesc_find_usages = "gr Find Usages"
+
+" WhichKey Descriptions for Refactoring
+let g:WhichKeyDesc_refactor = "<leader>r Refactoring"
+let g:WhichKeyDesc_refactor_quick = "<leader>rr Quick Refactor"
+let g:WhichKeyDesc_format_code = "<leader>lf Format Code"
+let g:WhichKeyDesc_rename = "<leader>rn Rename Element"
+let g:WhichKeyDesc_change_signature = "<leader>rc Change Signature"
+let g:WhichKeyDesc_extract_method = "<leader>rm Extract Method"
+let g:WhichKeyDesc_introduce_variable = "<leader>rv Introduce Variable"
+let g:WhichKeyDesc_introduce_field = "<leader>rF Introduce Field"
+
+" WhichKey Descriptions for Code Assists
+let g:WhichKeyDesc_code_assist = "<leader>c Code Assists"
+let g:WhichKeyDesc_code_actions = "<leader>ca Code Actions"
+let g:WhichKeyDesc_reformat_file = "<leader>rf Reformat File"
+
+" WhichKey Descriptions for Error Navigation
+let g:WhichKeyDesc_error_nav = "Navigation options"
+let g:WhichKeyDesc_prev_error = "[d Previous Error"
+let g:WhichKeyDesc_next_error = "]d Next Error"
+let g:WhichKeyDesc_problems_view = "<leader>ld Show Problems View"
+
+" WhichKey Descriptions for Buffer Management
+let g:WhichKeyDesc_buffer_nav = "Buffer Navigation"
+let g:WhichKeyDesc_next_buffer = "]b Next Buffer"
+let g:WhichKeyDesc_prev_buffer = "[b Previous Buffer"
+
+" WhichKey Descriptions for Clipboard
+let g:WhichKeyDesc_clipboard = "<leader>y/p Clipboard operations"
+
+" WhichKey Descriptions for IDE Actions
+let g:WhichKeyDesc_ide_actions = "IDE Actions"
+let g:WhichKeyDesc_goto_action = "<C-S-a> Go to Action"
+let g:WhichKeyDesc_run_menu = "<C-r> Run Menu"
+let g:WhichKeyDesc_generate = "<C-g> Generate"
+let g:WhichKeyDesc_navbar = "<leader><Tab> Show Navigation Bar"
+let g:WhichKeyDesc_run_class = "<leader>cr Run Current Class"
+
+" WhichKey Descriptions for Tool Windows
+let g:WhichKeyDesc_tool_windows = "<leader>t Tool Windows"
+let g:WhichKeyDesc_structure = "<leader>ls Show Structure"
+let g:WhichKeyDesc_file_structure = "<leader>fs File Structure"
+let g:WhichKeyDesc_todo = "<leader>to Show TODO Window"
+
+" WhichKey Descriptions for Menus
+let g:WhichKeyDesc_menus = "<leader>m Menus"
+let g:WhichKeyDesc_main_menu = "<leader>mm Main Menu"
+let g:WhichKeyDesc_analyze_menu = "<leader>ma Analyze Menu"
+let g:WhichKeyDesc_build_menu = "<leader>mb Build Menu"
+let g:WhichKeyDesc_code_menu = "<leader>mc Code Menu"
+let g:WhichKeyDesc_find_menu = "<leader>mf Find Menu"
+let g:WhichKeyDesc_goto_menu = "<leader>mg Go To Menu"
+let g:WhichKeyDesc_scope_menu = "<leader>ms Scope View Menu"
+let g:WhichKeyDesc_tab_menu = "<leader>mt Editor Tab Menu"
+let g:WhichKeyDesc_windows_menu = "<leader>mw Tool Windows Menu"
+
+" WhichKey Descriptions for Window Management
+let g:WhichKeyDesc_window_mgmt = "<leader>c Window Management"
+let g:WhichKeyDesc_hide_window = "<leader>cc Hide Active Window"
+
+" Plugin Configuration
+let g:NERDTreeWinSize = 30
+let g:NERDTreeMapPreview = 'O'
+
+" Navigation and Movement Improvements
+" Center screen after jumps and searches
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap G Gzz
+nnoremap gg ggzz
+nnoremap gd gdzz
+inoremap <C-c> <Esc>
+
+" File and Project Navigation
+nmap <leader>e :NERDTreeFocus<CR>
+nnoremap <C-p> :action GotoFile<CR>
+nnoremap <C-e> :action RecentFiles<CR>
+
+" Bookmarks
+nnoremap m :action ToggleBookmark<CR>
+nnoremap <C-m> :action ShowBookmarks<CR>
+
+" Enhanced Search and Find
+nnoremap <leader>sw :action FindInPath<CR>
+nnoremap <leader>sg :action TextSearchAction<CR>
+nnoremap gs :action GotoSymbol<CR>
+
+" Code Navigation and Management
+nmap gd :action GotoDeclaration<CR>
+nmap gD :action GotoTypeDeclaration<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gI :action QuickImplementations<CR>
+nmap go :action GotoSuperMethod<CR>
+nmap gr :action FindUsages<CR>
+
+" Open diagnostic under cursor
+nmap gl :action ShowErrorDescription<CR>
+
+" Refactoring and Code Actions
+" Comprehensive Refactoring Shortcuts
+nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>lf :action ReformatCode<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rc :action ChangeSignature<CR>
+
+" Code Transformation Actions
+nnoremap <leader>rm :action ExtractMethod<CR>
+nnoremap <leader>rv :action IntroduceVariable<CR>
+nnoremap <leader>rF :action IntroduceField<CR>
+
+" Quick Code Assists
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>rf :action ShowReformatFileDialog<CR>
+
+" Error and Diagnostics Navigation
+nmap [d :action GotoPreviousError<CR>
+nmap ]d :action GotoNextError<CR>
+nnoremap <leader>ld :action ActivateProblemsViewToolWindow<CR>
+
+" debugging
+nnoremap <leader>db :action ToggleLineBreakpoint <CR>
+
+" Buffer and Tab Management
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprevious<CR>
+
+" Clipboard and Yanking
+vmap <Leader>y "+y
+nmap <Leader>p "+p
+
+" Visual Mode Improvements
+" Move selected lines up/down
+xnoremap J :m '>+1<CR>gv=gv
+xnoremap K :m '<-2<CR>gv=gv
+
+" Continuous shift in visual mode
+xnoremap < <gv
+xnoremap > >gv
+
+" Clear Search Highlight
+nmap <leader>no :nohlsearch<CR>
+
+" Local History
+nmap <leader>u :action LocalHistory<CR>
+
+" IDE Action Shortcuts
+nnoremap <C-S-a> :action GotoAction<CR>
+nnoremap <C-r> :action RunMenu<CR>
+nnoremap <C-g> :action Generate<CR>
+nnoremap <leader><Tab> :action ShowNavBar<CR>
+nnoremap <leader>cr :action RunClass<CR>
+
+" Tool Windows and Menus
+nmap <leader>ls :action ActivateStructureToolWindow<CR>
+noremap <leader>fs :action FileStructurePopup<CR>
+nmap <leader>to :action ActivateTODOToolWindow<CR>
+
+" Menu Shortcuts
+nmap <leader>mm :action MainMenu<CR>
+nmap <leader>ma :action AnalyzeMenu<CR>
+nmap <leader>mb :action BuildMenu<CR>
+nmap <leader>mc :action CodeMenu<CR>
+nmap <leader>mf :action FindMenuGroup<CR>
+nmap <leader>mg :action GoToMenu<CR>
+nmap <leader>ms :action ScopeViewPopupMenu<CR>
+nmap <leader>mt :action EditorTabPopupMenu<CR>
+nmap <leader>mw :action ToolWindowsGroup<CR>
+
+" Window Management
+nmap <leader>cc :action HideActiveWindow<CR>
+
+" Handler Settings for Consistent Vim Behavior
+sethandler <C-j> a:vim
+sethandler <C-k> a:vim
+
+" Harpoon
+nnoremap <C-a> :action ShowHarpoon<CR>
+nnoremap <C-s> :action AddToHarpoon<CR>
+nnoremap H :action GotoHarpoon1<CR>
+nnoremap L :action GotoHarpoon2<CR>
+
+" CMD Float
+let g:cmdfloat_completion_prev_keys = ['Up', '<C-p>', '<S-Tab>']
+let g:cmdfloat_completion_next_keys = ['Down', '<C-n>', '<Tab>']
+
+" Recommended Plugins
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
