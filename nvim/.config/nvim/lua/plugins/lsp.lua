@@ -267,10 +267,11 @@ function M.config()
 
 			-- Actions
 			map("<leader>rn", vim.lsp.buf.rename, "Rename")
-			map("<leader>ca", function()
-				fzf.lsp_code_actions()
-			end, "Code action", { "n", "v" })
-
+			if vim.bo[event.buf].filetype ~= "rust" then
+				map("<leader>ca", function()
+					fzf.lsp_code_actions()
+				end, "Code action", { "n", "v" })
+			end
 			-- Symbols
 			map("<leader>ds", function()
 				fzf.lsp_document_symbols()

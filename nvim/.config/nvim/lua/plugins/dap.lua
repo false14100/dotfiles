@@ -1,9 +1,9 @@
 local M = {
 	"mfussenegger/nvim-dap",
 	dependencies = {
-		"leoluz/nvim-dap-go",
+		-- "leoluz/nvim-dap-go",
 		-- "mfussenegger/nvim-dap-python",
-		"igorlfs/nvim-dap-view",
+		"rcarriga/nvim-dap-ui",
 		"theHamsta/nvim-dap-virtual-text",
 		"Jorenar/nvim-dap-disasm",
 		"nvim-neotest/nvim-nio",
@@ -14,30 +14,64 @@ local M = {
 
 function M.config()
 	local dap = require("dap")
+	local dapui = require("dapui")
 
-	require("dap-view").setup({
-		auto_toggle = true,
-		winbar = {
-			sections = {
-				"watches",
-				"scopes",
-				"exceptions",
-				"breakpoints",
-				"threads",
-				"repl",
-				"disassembly",
+	dapui.setup({
+		controls = {
+			enabled = true,
+			element = "repl",
+		},
+		layouts = {
+			{
+				-- Left sidebar: scopes + watches + breakpoints stacked
+				position = "left",
+				size = 40,
+				elements = {
+					{ id = "scopes", size = 0.5 },
+					{ id = "watches", size = 0.25 },
+					{ id = "breakpoints", size = 0.25 },
+				},
+			},
+			{
+				-- Bottom tray: REPL + console side by side
+				position = "bottom",
+				size = 12,
+				elements = {
+					{ id = "repl", size = 0.5 },
+					{ id = "console", size = 0.5 },
+				},
+			},
+			{
+				elements = { { id = "disassembly" } },
+				position = "bottom",
+				size = 0.15,
 			},
 		},
-	})
-	require("dap-disasm").setup({
-		dapview_register = true,
-
-		-- If registered, pass section configuration to nvim-dap-view
-		dapview = {
-			keymap = "D",
-			label = "Disassembly [D]",
-			short_label = "󰒓 [D]",
+		floating = {
+			max_height = 0.9,
+			max_width = 0.9,
+			border = "rounded",
+			mappings = { close = { "q", "<Esc>" } },
 		},
+		render = {
+			max_type_length = nil,
+			max_value_lines = 100,
+		},
+	})
+
+	-- Auto-open/close UI with session lifecycle
+	dap.listeners.after.event_initialized["dapui_config"] = function()
+		dapui.open()
+	end
+	dap.listeners.before.event_terminated["dapui_config"] = function()
+		dapui.close()
+	end
+	dap.listeners.before.event_exited["dapui_config"] = function()
+		dapui.close()
+	end
+
+	require("dap-disasm").setup({
+		dapui_register = true,
 
 		-- Add custom REPL commands for stepping with instruction granularity
 		repl_commands = true,
@@ -71,7 +105,7 @@ function M.config()
 	})
 
 	require("nvim-dap-virtual-text").setup({})
-	require("dap-go").setup({})
+	-- require("dap-go").setup({})
 
 	-- Python debugging
 	dap.adapters.python = {
@@ -293,6 +327,8 @@ function M.config()
 	keymap("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle REPL" })
 	keymap("n", "<leader>dl", dap.run_last, { desc = "Run last config" })
 	keymap("n", "<leader>dt", dap.terminate, { desc = "Terminate debugging" })
+	keymap("n", "<leader>dC", dap.clear_breakpoints, { desc = "Clear all breakpoints" })
+	keymap("n", "<leader>dT", dapui.close, { desc = "Close dap UI" })
 end
 
 return M
