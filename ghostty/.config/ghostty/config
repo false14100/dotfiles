@@ -1,10 +1,15 @@
 font-family = FantasqueSansM Nerd Font Mono
-font-size = 15
+font-size = 16
 cursor-style = block
 window-padding-balance = true
-background-opacity = 0.8
+background-opacity = 0.87
 gtk-titlebar = false
 window-theme = dark
+
+# Adjust horizontal padding (Left, Right)
+window-padding-x = 10
+# Adjust vertical padding (Top, Bottom)
+window-padding-y = 10
 
 background = #151515
 foreground = #D0D0D0

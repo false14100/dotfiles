@@ -204,7 +204,6 @@ let g:fzf_buffers_jump = 1
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'dense-analysis/ale'
 Plug 'tribela/vim-transparent'
 Plug 'xianzhon/vim-code-runner'
 Plug 'airblade/vim-gitgutter'

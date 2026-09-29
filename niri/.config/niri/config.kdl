@@ -127,7 +127,7 @@ workspace "10"
 binds {
     // ===== Core Actions =====
     Alt+Shift+Slash { show-hotkey-overlay; }
-    Alt+T { spawn "ghostty"; }
+    Alt+T { spawn "kitty"; }
     Alt+D { spawn "rofi" "-show" "drun"; }
     Alt+Ctrl+D { spawn "rofi" "-show" "window"; }
 
