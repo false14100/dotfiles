@@ -12,6 +12,8 @@ set -U fish_greeting
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 
+set -gx MANPAGER "nvim +Man!"
+
 # Go
 set -gx GOPATH $HOME/.local/share/go
 
