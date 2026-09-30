@@ -58,6 +58,7 @@ window#waybar {
     margin: 3px 2px;
     background-color: @base01;
     color: @base0A;
+    border-radius: 6px;
 }
 
 /* Hover effects matching Rofi selection style */
